@@ -1,0 +1,112 @@
+/* Container holding the two cards */
+.card-container {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   background-color: #4221e92e;
+   backdrop-filter: blur(3px);
+
+}
+
+/* Styles for each card */
+.main-card {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 210px 250px 20px;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    background: #1d1d1d;
+    color: white;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    font-family: roboto;
+    text-align: center;
+    cursor: pointer;
+    margin: 30px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect for the card */
+.main-card:hover {
+     scale: 1.1;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Style for the image inside the card */
+.card-image img {
+    grid-area: image;
+    background: linear-gradient(☐ #fff0 0%, #fffe 70%, #1d1d1d 100%);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+/* Style for the title and text inside the card */
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    overflow-y: hidden;
+    max-height: calc(100% - 40px);
+}
+
+/* Show the title and text on hover */
+.main-card:hover .card-content {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+/* Pseudo-elements ::before and ::after */
+.main-card::after {
+    content: "";
+    background: linear-gradient(45deg,
+        #ff0000 0%,
+        #ff9a00 10%,
+        #d0de21 20%,
+        #4fdc4a 30%,
+        #3fdad8 40%,
+        #2fc9e2 50%,
+        #1c7fee 60%,
+        #5f15f2 70%,
+        #ba0cf8 80%,
+        #fb07d9 90%,
+        #ff0000 100%) repeat 0% 0% / 300% 100%;
+    position: absolute;
+    inset: -3px;
+    border-radius: 16px;
+    filter: blur(8px);
+    transform: translateZ(-1px);
+    animation: rgb 6s linear infinite;
+}
+
+@keyframes rgb {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hover effect for the pseudo-elements */
+.main-card:hover::before,
+.main-card:hover::after {
+    opacity: 0.5;
+}
+
+/* Cursor pointer for links */
+a {
+    cursor: pointer;
+}
