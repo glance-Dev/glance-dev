@@ -38,6 +38,7 @@ function Home() {
           <div>
             <h2>
               <span>Web Development</span>
+
             </h2>
             <h3>Now let's review.</h3>
             <a href="#projects" className="web-btn">
