@@ -1,18 +1,25 @@
-import './App.css';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
-import Courses from './components/courses/Courses';
-
-
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 function App() {
   return (
     <>
-      <Courses />
-    </>
+    edfmek
+   <Router>
+   <Header />
+   <Routes>
+     <Route path="/" element={ <Home/> } />
+
+   </Routes>
+
+   <Footer />
+
+ </Router>
+ </>
   );
 }
 
