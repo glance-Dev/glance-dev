@@ -38,7 +38,7 @@ section{
   
   .box h2 {
     color: #fff;
-    font-size: 5em;
+    font-size: 3em;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff,
@@ -278,8 +278,7 @@ canvas{
     height: 100%;
     background: #000;
     animation: animateTopLayer 10s linear infinite;
-    border-radius: 50px;
-    
+
   }
   
   
