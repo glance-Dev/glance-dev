@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './MobTopic.css';
 import { Card } from 'react-bootstrap';
 import VanillaTilt from 'vanilla-tilt';
+import ParticlesComponent from '../../particales'
+import Topics from '../Topics.css';
 
 function Tilt(props) {
     const { options, ...rest } = props;
@@ -30,7 +31,9 @@ function MobTopic() {
 
     return (
         <>
+        <ParticlesComponent id="backgroundCanvas" />
             <div className='card-container'>
+            {/* <ParticlesComponent id="backgroundCanvas" /> */}
                 <a href="your_link_here" style={{ textDecoration: 'none' }}>
                     <Tilt className={`main-card ${isClicked ? 'card-animated' : ''}`} options={options} onClick={handleClick}>
                         <div className="card-image">
@@ -43,6 +46,7 @@ function MobTopic() {
                             </Card.Text>
                         </Card.Body>
                     </Tilt>
+
                 </a>
                 <a href="your_link_here" style={{ textDecoration: 'none' }}>
                     <Tilt className={`main-card ${isClicked ? 'card-animated' : ''}`} options={options} onClick={handleClick}>
@@ -57,6 +61,7 @@ function MobTopic() {
                         </Card.Body>
                     </Tilt>
                 </a>
+                <ParticlesComponent id="backgroundCanvas" />
             </div>
         </>
     );

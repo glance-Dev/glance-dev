@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './webTopics.css';
+import Topics from '../Topics.css'
 import { Card } from 'react-bootstrap';
 import VanillaTilt from 'vanilla-tilt';
 
