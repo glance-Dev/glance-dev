@@ -1,36 +1,46 @@
 /* Container holding the two cards */
 .card-container {
-    display: flex !important;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
-    height: 100vh;
-   background-color: #4221e92e;
-   backdrop-filter: blur(3px);
-
+    flex-direction: row;
+    height: 150vh;
+    color: #a2ff01;
+    background-color: #4221e92e;
+    backdrop-filter: blur(1px);
+    padding: 20px;
+    margin: auto 0;
 }
 
-/* Styles for each card */
+
 .main-card {
-    display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 210px 250px 20px;
-    grid-template-areas: "image" "text" "stats";
+    width: 300px;
+    height: auto;
     border-radius: 18px;
-    background: #1d1d1d;
-    color: white;
+    background: #1b0e57;
+    color: rgb(255, 255, 255);
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
-    font-family: roboto;
+	font-family: 'Montserrat', sans-serif;
     text-align: center;
     cursor: pointer;
-    margin: 30px;
+    margin: 0px 80px;
     transform-style: preserve-3d;
     transform: perspective(1000px);
     transition: all 0.3s ease;
 }
+.main-card p {
+    font-size: 1em;
+    color: #f5f5f7;
+}
+.card-text:last-child {
+    margin-bottom: 0;
+    padding: 10px;
+}
 
 /* Hover effect for the card */
 .main-card:hover {
-     scale: 1.1;
+    scale: 1.1;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
 }
 
@@ -46,7 +56,9 @@
 /* Style for the title and text inside the card */
 .card-content {
     position: absolute;
+    backdrop-filter: blur(3px);
     bottom: 0;
+    color: #a2ff01;
     left: 0;
     width: 100%;
     padding: 20px;
@@ -67,17 +79,17 @@
 .main-card::after {
     content: "";
     background: linear-gradient(45deg,
-        #ff0000 0%,
-        #ff9a00 10%,
-        #d0de21 20%,
-        #4fdc4a 30%,
-        #3fdad8 40%,
-        #2fc9e2 50%,
-        #1c7fee 60%,
-        #5f15f2 70%,
-        #ba0cf8 80%,
-        #fb07d9 90%,
-        #ff0000 100%) repeat 0% 0% / 300% 100%;
+            #ff0000 0%,
+            #ff9a00 10%,
+            #d0de21 20%,
+            #4fdc4a 30%,
+            #3fdad8 40%,
+            #2fc9e2 50%,
+            #1c7fee 60%,
+            #5f15f2 70%,
+            #ba0cf8 80%,
+            #fb07d9 90%,
+            #ff0000 100%) repeat 0% 0% / 300% 100%;
     position: absolute;
     inset: -3px;
     border-radius: 16px;

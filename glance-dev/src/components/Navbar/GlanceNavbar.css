@@ -1,0 +1,123 @@
+/* GlanceNavbar.css */
+
+/* Set the background color of the tertiary body */
+.bg-body-tertiary {
+  --bs-bg-opacity: 1; /* Opacity of the background color */
+  background-color: rgb(34 91 152 / 64%) !important; /* Light blue background */
+}
+
+/* Styles for the navbar brand */
+.navbar-brand {
+  padding-top: var(--bs-navbar-brand-padding-y); /* Top padding for brand */
+  padding-bottom: var(--bs-navbar-brand-padding-y); /* Bottom padding for brand */
+  margin-right: var(--bs-navbar-brand-margin-end); /* Right margin for brand */
+  font-size: var(--bs-navbar-brand-font-size); /* Font size for brand */
+  color: rgb(175, 210, 240); /* Brand text color */
+  --bs-navbar-brand-hover-color: rgb(94, 225, 223); /* Hover color for brand */
+  text-decoration: none; /* Remove underline from brand */
+  white-space: nowrap; /* Prevent line breaks in brand */
+}
+
+/* Styles for nav links */
+.nav-link {
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  color: rgba(63, 195, 232, 0.587);
+  text-decoration: none;
+  background: 0 0;
+  border: 0;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+/* Styles for active and show nav links */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: rgba(248, 247, 249, 0.856);
+}
+
+/* Styles for the navbar navigation */
+.navbar-nav {
+  --bs-nav-link-padding-x: 0;
+  --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-weight: ; /* Font weight for nav links */
+  --bs-nav-link-color: var(--bs-navbar-color); /* Nav link color */
+  --bs-nav-link-hover-color: rgb(0, 252, 218); /* Hover color for nav links */
+  --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color); /* Disabled color for nav links */
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+/* Styles for login button */
+.loginButton {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+}
+
+
+/* Login button hover effects */
+.loginButton button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 128px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.loginButton button:hover::before {
+  transform: rotate(-180deg);
+}
+
+.loginButton button:active::before {
+  scale: 0.7;
+}
+
+/* Logged-in button styles */
+.loginButton.loggedIn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.loginButton.loggedIn:hover::after {
+  filter: blur(30px);
+}
+
+/* Styles for the navbar toggler */
+.navbar-toggler {
+  padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+  font-size: var(--bs-navbar-toggler-font-size);
+  line-height: 1;
+  color: aquamarine; /* Toggler text color */
+  background-color: aquamarine; /* Toggler background color */
+  border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
+  border-radius: var(--bs-navbar-toggler-border-radius);
+  transition: var(--bs-navbar-toggler-transition);
+}
