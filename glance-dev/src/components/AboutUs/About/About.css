@@ -9,7 +9,16 @@
   height: 100vh;
  
 }
-   
+   .cont-name{
+    width: calc(100% - 240px);
+    text-align: center;
+    padding: 30px;
+    font-size: 3.5em;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-left: 90px;
+   }
   
   
   .cont-card {
@@ -73,6 +82,7 @@
     padding-right: 30px !important;
     
     }
+  
   
   @media (width <= 600px) {
     .cont-card {

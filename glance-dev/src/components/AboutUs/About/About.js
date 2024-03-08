@@ -10,9 +10,7 @@ import Contact from "../Contact/Contact";
 function About() {
   return (
     <>
- 
- <ParticlesComponent id="backgroundCanvas" />
-    <Contact/>
+      <div className="cont-name">Our teams</div>
       <div className="cont-containar">
         {teamData.map((team) => {
           return (
@@ -23,17 +21,18 @@ function About() {
                 <h3>{team.info}</h3>
                 <p>{team.Phone}</p>
                 <div class="social-icons">
-                 
                   <a href={team.email}>
                     <FontAwesomeIcon icon={faSquareGithub} size="xl" />
                   </a>
-                  
                 </div>
               </div>
             </div>
           );
         })}
       </div>
+      <div className="mar"></div>
+      <ParticlesComponent id="backgroundCanvas" />
+      <Contact />
     </>
   );
 }

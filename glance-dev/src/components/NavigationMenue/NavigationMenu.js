@@ -35,7 +35,8 @@ function NavigationMenu() {
     const obj = {
       course_id: id,
       user_id: user.sub,
-      completed: "false"
+      completed: "false",
+      course_name: course_name
     };
     await axios.post(serverUrl, obj);
   };
@@ -66,12 +67,7 @@ function NavigationMenu() {
       <div >
         <div class="book">
           <span id="seconderyTopic">
-            {Object.keys(prop).map((childTopic) => (
-              <span key={childTopic}>
-                <br></br>
-                {childTopic}
-              </span>
-            ))}
+          <span>{prop.info}</span>
           </span>
           <div class="cover">
             <p>{topic}</p>
@@ -81,17 +77,13 @@ function NavigationMenu() {
           <div>
             <Link to={`/Material/${topic}`}>
               <button id="button" onClick={() => handleCardClick(topic)}>
-                Subscribe
+                Start Now!
               </button>
             </Link>
-
-            <button onClick={logout} id="button">
-              LogOut
-            </button>
           </div>
         ) : (
           <button id="button" onClick={() => { loginWithPopup(); }}>
-            Subscribe
+            Start Now!
           </button>
         )}
         </div>
@@ -107,7 +99,7 @@ function NavigationMenu() {
           ))
         ))}
       </div>
-      <SideNavBar />
+      {/* <SideNavBar /> */}
     </>
   );
 }
