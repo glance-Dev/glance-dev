@@ -36,13 +36,15 @@
     "web-vitals": "^3.5.2"
   },
   "devDependencies": {
+    "netlify-cli": "^3.41.1",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "react-scripts": "^5.0.1"
   },
-   "scripts": {
+  "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "deploy": "netlify deploy",
     "eject": "react-scripts eject"
   },
   "browserslist": {
