@@ -217,11 +217,64 @@
 }
     
 
-.rowCard{
+
+
+
+.rowCard {
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  gap: 20px; /* Adjust the gap value as needed */
 }
-.maxHight{
 
+.cardCourse {
+  width: 22rem;
+  margin-bottom: 20px; /* Add margin at the bottom of each card */
+  background-color: #fff;
+  border: none;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ... (rest of your CSS) */
+
+
+.card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.cardTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 20px 20px 10px; /* Add padding for better spacing */
+  background-color: #f5f5f5; /* Light gray background for title */
+  color: #333; /* Darker text */
+  font-weight: 800 ;
+  font-size: 30px;
+}
+
+.card-body {
+  padding: 15px 20px; /* Adjust padding for content */
+}
+
+.textarea {
+  border: 1px solid #ccc; /* Lighter text area border */
+  background-color: #fff; /* White text area background */
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1); /* Text area depth */
+  padding: 10px;
+  resize: none; /* Disable text area resizing */
+}
+
+.btn {
+  border-radius: 5px; /* Match card corners */
+  transition: all 0.2s ease-in-out; /* Smoother hover effects */
+  margin-top: 10px; /* Add spacing after text area */
+}
+
+.btn:hover {
+  background-color: #2196f3; /* Blue hover color */
+  color: #fff; /* White text on hover */
 }

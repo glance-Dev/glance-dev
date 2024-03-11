@@ -71,10 +71,9 @@ function WebTopics() {
                         <hr></hr>
                         <Card.Text>
                             React.js and Bootstrap team up for groundbreaking front-end development, offering dynamic user interfaces. Component-based architecture in React.js streamlines UI development, fostering collaboration among developers.</Card.Text>
-                        <div className='getButton'> <Button variant="info" onClick={() => handelClick(1234, "frontend")}>GET!</Button></div>
+                        <div className='getButton'> <Button variant="info" onClick={() => handelClick(1234, "React")}>GET!</Button></div>
                     </Card.Body>
                 </Tilt>
-
 
                 <Tilt className="main-card" options={options}>
                     <Link to="/Content/backend" style={{ textDecoration: 'none' }}>
@@ -88,7 +87,7 @@ function WebTopics() {
                         <hr></hr>
                         <Card.Text>
                             Node.js and Express rock the back-end world, powering scalable web apps. With event-driven architecture and non-blocking I/O, Node.js creates a strong runtime environment for server-side JavaScript. Seamlessly transition from front-end to back-end dev!.</Card.Text>
-                        <div className='getButton'></div><div className='getButton'><Button variant="info" onClick={() => handelClick(12345, "backend")}>GET!</Button></div>
+                        <div className='getButton'></div><div className='getButton'><Button variant="info" onClick={() => handelClick(12345, "Node.js")}>GET!</Button></div>
                     </Card.Body>
                 </Tilt>
 

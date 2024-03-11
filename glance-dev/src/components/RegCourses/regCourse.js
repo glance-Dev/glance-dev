@@ -8,7 +8,7 @@ import { Card } from 'react-bootstrap';
 
 function Courses() {
   const [allCourses, setAllCourses] = useState([]);
-  const [comment, setComment] = useState('');
+  const [comments, setComments] = useState({});
   const { user, loginWithPopup, logout, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
@@ -21,31 +21,34 @@ function Courses() {
         console.error(error);
       }
     };
-
     fetchCourses();
-  }, []);
+  }, []); // Empty dependency array to run only once on mount
 
-  const filteredCourses = allCourses.filter(
-    (course) => course.user_id === "auth0|65e7662c858d1fb60b75f2b2" && !course.completed
-  );
+  const filteredCourses = user &&
+    allCourses.filter((course) => course.user_id === user.sub && !course.completed);
 
-  const handleCommentChange = (event) => {
-    setComment(event.target.value);
+  const handleCommentChange = (courseId, event) => {
+    setComments((prevComments) => ({
+      ...prevComments,
+      [courseId]: event.target.value,
+    }));
   };
 
   const handleCommentSubmit = async (courseId) => {
-    if (!user) return;
-    if (!comment) return; // Handle empty comment case
-
+    if (!user) return; // Early return if user is not logged in
     try {
       const response = await fetch(`https://projectserver-wxkm.onrender.com/review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_id: user.sub, course_id: courseId, comment })
+        body: JSON.stringify({ user_id: user.sub, course_id: courseId, comment: comments[courseId] })
       });
 
       if (response.ok) {
-        setComment(''); // Clear comment after successful submission
+        // Fetch the updated data after submitting the comment
+        const updatedResponse = await fetch('https://projectserver-wxkm.onrender.com/regCourse');
+        const updatedData = await updatedResponse.json();
+        setAllCourses(updatedData);
+        setComments({ ...comments, [courseId]: '' });
         console.log('Comment submitted successfully!');
       } else {
         console.error('Error submitting comment:', await response.text());
@@ -56,15 +59,18 @@ function Courses() {
   };
 
   const handleCourseDelete = async (courseId) => {
-    if (!user) return;
-    console.log(courseId);
-    console.log(user.sub);
+    if (!user) return; // Early return if user is not logged in
+
     try {
       const response = await fetch(`https://projectserver-wxkm.onrender.com/regCourse/${user.sub}/${courseId}`, {
         method: 'DELETE'
       });
 
       if (response.ok) {
+        // Fetch the updated data after deleting the course
+        const updatedResponse = await fetch('https://projectserver-wxkm.onrender.com/regCourse');
+        const updatedData = await updatedResponse.json();
+        setAllCourses(updatedData);
         console.log('Course deleted successfully!');
       } else {
         console.error('Error deleting course:', await response.text());
@@ -76,36 +82,43 @@ function Courses() {
 
   return (
     <>
-      <div className="maxHight"></div>
+      <div className="maxHeight"></div>
       <center>
         <h2 className="title">Registered Courses</h2>
       </center>
       <div className="rowCard">
-        <Row xs={1} md={4} className="g-4">
-          {filteredCourses.map((course) => (
-            <Col key={course.course_id}>
-              <Card style={{ width: '22rem', backgroundColor: '#555', color: 'black' }}>
-                <Card.Body>
-                  <Card.Title>{course.course_name}</Card.Title>
-                  <textarea
-                    rows="1"
-                    cols="30"
-                    onChange={handleCommentChange}
-                    placeholder="Add your comment"
-                    value={comment}
-                    style={{ backgroundColor: 'gray', color: 'black', border: '1px solid black' }}
-                  />
-                  <Button variant="dark" onClick={() => handleCommentSubmit(course.course_id)}>
-                    Submit Comment
-                  </Button>
-                  <Button variant="danger" onClick={() => handleCourseDelete(course.course_id)}>
-                    Delete Course
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        {user && ( // Wrap course logic in a conditional statement
+          <>
+            <Row xs={1} md={4} className="g-4">
+              {filteredCourses && filteredCourses.map((course) => (
+                <Col key={course.course_id}>
+                  <div className="cardCourse">
+                    <div className="cardTitle">{course.course_name}</div>
+                    <div className="card-body">
+                      <textarea
+                        rows="1"
+                        cols="30"
+                        onChange={(event) => handleCommentChange(course.course_id, event)}
+                        placeholder="Add your comment"
+                        className="textarea"
+                      />
+                      {comments[course.course_id] && (
+                        <p className="comment">{comments[course.course_id]}</p>
+                      )}
+                      <Button variant="primary" className="btn" onClick={() => handleCommentSubmit(course.course_id)}>
+                        Submit Comment
+                      </Button>
+                      <Button variant="danger" className="btn" onClick={() => handleCourseDelete(course.course_id)}>
+                        Delete Course
+                      </Button>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </>
+        )}
+        {!user && <p>Loading courses...</p>} {/* Display a placeholder while loading */}
       </div>
     </>
   );

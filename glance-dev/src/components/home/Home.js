@@ -9,24 +9,7 @@ import GlanceNavbar from "../Navbar/GlanceNavbar.js";
 function Home() {
   return (
     <>
-      <div className="container-home">
-        {/* <section className="">
-          <div>
-          
-          </div>
-        </section>
-        <section className="intro">
-          <div className="box">
-            <div className="lightbar"></div>
-            <div className="topLayer"></div>
-            <h2>
-              Glance
-              <FontAwesomeIcon icon={faCodeMerge} />
-              DEV
-            </h2>
-          </div>
-        </section> */}
- 
+      <div className="container-home"> 
      
           <div className="container-ll">
           <section className="intro">

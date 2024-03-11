@@ -9,7 +9,6 @@ import './GlanceNavbar.css'; // Import the CSS file
 
 
 // Import Auth0 components conditionally:
-import { Auth0Provider } from '@auth0/auth0-react'; // For non-authenticated use
 import { useAuth0 } from '@auth0/auth0-react'; // For authenticated use
 
 function GlanceNavbar() {
@@ -34,7 +33,7 @@ function GlanceNavbar() {
   };
 
   const loginButtonText = isLoggedIn ? 'Logout' : 'Login';
-
+console.log(user);
   return (
     <Navbar expand="lg" className={isOpen ? 'bg-body-tertiary open' : 'bg-body-tertiary'}>
       <Container className="continNav">
