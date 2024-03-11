@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[7688],{7688:(e,a,n)=>{n.d(a,{LineDrawer:()=>t});class t{draw(e){!function(e){var a;const{context:n,particle:t,radius:i}=e,s=t.shapeData;n.moveTo(-i,0),n.lineTo(i,0),n.lineCap=null!==(a=null===s||void 0===s?void 0:s.cap)&&void 0!==a?a:"butt"}(e)}getSidesCount(){return 1}}}}]);
-//# sourceMappingURL=7688.cdb1c39b.chunk.js.map
