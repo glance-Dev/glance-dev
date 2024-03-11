@@ -5,26 +5,20 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faCodeMerge } from '@fortawesome/free-solid-svg-icons';
-import './GlanceNavbar.css'; // Import the CSS file
-
-
-// Import Auth0 components conditionally:
-import { useAuth0 } from '@auth0/auth0-react'; // For authenticated use
+import './GlanceNavbar.css';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function GlanceNavbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Use useAuth0 for authenticated users, otherwise default to false
   const { user, isAuthenticated, logout, loginWithRedirect } = useAuth0();
-  const isLoggedIn = !isAuthenticated ? false : true; // Derived state
+  const isLoggedIn = !isAuthenticated ? false : true;
 
   const handleLogin = () => {
-    // Leverage the loginWithPopup() method provided by useAuth0
     loginWithRedirect();
   };
 
   const handleLogout = () => {
-    // Leverage the logout() method provided by useAuth0
     logout();
   };
 
