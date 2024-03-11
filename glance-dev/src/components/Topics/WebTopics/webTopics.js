@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Topics from '../Topics.css'
+import Topics from './Topics.css'
 import { Card, Button } from 'react-bootstrap';
 import VanillaTilt from 'vanilla-tilt';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ function Tilt(props) {
                 }
             };
         }
-        return () => { }; // No-op if tilt.current is null
+        return () => { }; 
     }, [options]);
     return <div ref={tilt} {...rest} />;
 }
@@ -125,7 +125,6 @@ function WebTopics() {
                     </Tilt>
                 </Link>
             </div>
-
         </>
     );
 }
