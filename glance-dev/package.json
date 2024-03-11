@@ -1,4 +1,9 @@
 {
+
+    "name": "galnce-dev",
+    "version": "1.0.1",
+    "homepage": "/",
+    
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
     "@chakra-ui/react": "^2.8.2",
