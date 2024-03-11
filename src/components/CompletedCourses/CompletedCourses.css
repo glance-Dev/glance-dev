@@ -1,0 +1,12 @@
+.title2 {
+    margin: 20px;
+   margin-top: 200px;
+    transition: color 0.3s ease; 
+  }
+  
+  .title2:hover {
+    color: white; 
+    cursor: pointer; 
+    text-decoration:dashed; 
+    letter-spacing: 2px;
+  }
